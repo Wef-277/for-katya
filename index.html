@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#170d19">
+  <title>Для Кати — наша история</title>
+  <meta name="description" content="С того самого 5 мая. И каждый день я выбираю тебя.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap');
+    :root{--bg:#100b13;--panel:#1b121e;--panel2:#241725;--pink:#e7a8c2;--rose:#bd718f;--cream:#f8eaf0;--muted:#bdaab7;--line:rgba(231,168,194,.18)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(ellipse at 50% -15%,#46243d 0%,#1a111e 38%,var(--bg) 76%);color:var(--cream);font-family:Manrope,system-ui,sans-serif;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    .grain{position:fixed;inset:0;pointer-events:none;opacity:.08;z-index:3;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.3'/%3E%3C/svg%3E")}
+    .stars{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+    .star{position:absolute;width:2px;height:2px;border-radius:50%;background:#ffe7f1;opacity:.55;animation:twinkle 3s ease-in-out infinite alternate}
+    @keyframes twinkle{to{opacity:.12;transform:scale(.6)}}
+    .wrap{width:min(1080px,calc(100% - 40px));margin:auto}
+    nav{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:25px max(24px,calc((100% - 1080px)/2));color:#e9cfda;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+    .brand{font-family:'Cormorant Garamond',serif;font-size:23px;letter-spacing:.04em;text-transform:none;color:var(--pink)}
+    .navlinks{display:flex;gap:25px}.navlinks a{opacity:.75;transition:.2s}.navlinks a:hover{opacity:1;color:var(--pink)}
+    .hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:110px 20px 75px;position:relative}
+    .hero:before{content:"";position:absolute;width:min(620px,90vw);height:min(620px,90vw);border-radius:50%;background:radial-gradient(circle,rgba(182,91,137,.18),transparent 68%);filter:blur(12px)}
+    .hero-inner{position:relative;max-width:760px}
+    .eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--pink);margin-bottom:28px}
+    h1,h2,.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500}
+    h1{font-size:clamp(58px,10vw,112px);line-height:.88;margin:0 0 22px;letter-spacing:-.035em}
+    h1 span{display:block;color:var(--pink);font-style:italic}
+    .subtitle{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,31px);color:#e7cad7;margin:28px 0 12px}
+    .date{color:var(--muted);font-size:12px;letter-spacing:.16em;margin-top:26px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid rgba(231,168,194,.55);padding:14px 23px;border-radius:999px;color:#ffeaf2;background:rgba(231,168,194,.08);font-size:12px;letter-spacing:.08em;text-transform:uppercase;transition:.25s;cursor:pointer}
+    .btn:hover{background:rgba(231,168,194,.18);transform:translateY(-2px);box-shadow:0 8px 30px rgba(189,113,143,.14)}
+    .scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.2em;color:#a990a0}
+    section{padding:105px 0;position:relative}
+    .section-kicker{text-align:center;color:var(--rose);font-size:10px;letter-spacing:.27em;text-transform:uppercase;margin-bottom:14px}
+    h2{text-align:center;font-size:clamp(42px,6vw,66px);margin:0 0 18px}
+    .intro{max-width:610px;text-align:center;color:var(--muted);font-size:14px;line-height:1.9;margin:0 auto 48px}
+    .story{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:850px;margin:auto}
+    .story-card{background:linear-gradient(145deg,rgba(44,27,45,.9),rgba(25,17,29,.95));border:1px solid var(--line);border-radius:20px;padding:30px;min-height:190px}
+    .story-card .num{font-family:'Cormorant Garamond',serif;font-size:38px;color:var(--pink);font-style:italic}
+    .story-card h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:27px;margin:9px 0}
+    .story-card p{color:var(--muted);font-size:13px;line-height:1.8;margin:0}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .photo{aspect-ratio:4/5;border-radius:17px;border:1px solid var(--line);overflow:hidden;position:relative;background:linear-gradient(145deg,#40253b,#1b1421);display:grid;place-items:center;text-align:center;padding:20px;color:#e8bfd0}
+    .photo:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(235,170,200,.18),transparent 60%)}
+    .photo span{position:relative;font-family:'Cormorant Garamond',serif;font-size:24px}
+    .photo small{display:block;font:10px Manrope,sans-serif;color:#c5aab8;margin-top:9px;letter-spacing:.1em}
+    .photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+    .poem{max-width:720px;margin:auto;padding:45px 50px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,rgba(40,24,41,.88),rgba(22,15,25,.95));text-align:center;box-shadow:0 25px 80px rgba(0,0,0,.18)}
+    .poem p{font-family:'Cormorant Garamond',serif;font-size:clamp(19px,2.5vw,24px);line-height:1.55;color:#f0dce5;margin:0 0 19px}
+    .poem p:last-child{margin-bottom:0;color:var(--pink);font-style:italic}
+    .reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:850px;margin:auto}
+    .reason{padding:22px 18px;border-radius:15px;background:rgba(39,24,40,.75);border:1px solid var(--line);text-align:center;color:#e9d3dd;font-family:'Cormorant Garamond',serif;font-size:21px}
+    .reason b{display:block;color:var(--pink);font:10px Manrope,sans-serif;letter-spacing:.17em;margin-bottom:9px}
+    .letter-wrap{text-align:center}
+    .letter{max-width:650px;margin:0 auto 25px;padding:0 25px;color:#e8d4de;font-family:'Cormorant Garamond',serif;font-size:25px;line-height:1.6}
+    .hidden-letter{display:none;max-width:650px;margin:30px auto 0;padding:34px;border:1px solid var(--line);border-radius:20px;background:rgba(37,23,39,.85);color:#f0dce5;font-family:'Cormorant Garamond',serif;font-size:23px;line-height:1.65;text-align:left;animation:fade .6s ease}
+    .hidden-letter.show{display:block}
+    @keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+    footer{text-align:center;padding:45px 20px 60px;color:#a991a0;font-size:11px;letter-spacing:.1em}
+    footer strong{display:block;font:italic 30px 'Cormorant Garamond',serif;color:var(--pink);letter-spacing:0;margin-bottom:10px}
+    .heart{color:var(--pink)}
+    @media(max-width:700px){nav{padding:20px;}.navlinks{display:none}.wrap{width:min(100% - 30px,560px)}section{padding:78px 0}.story{grid-template-columns:1fr}.story-card{min-height:0}.gallery{grid-template-columns:1fr 1fr}.photo:last-child{display:none}.reasons{grid-template-columns:1fr 1fr}.poem{padding:30px 22px}.letter{font-size:22px}.hidden-letter{padding:25px;font-size:21px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="stars" id="stars"></div><div class="grain"></div>
+  <nav><a class="brand" href="#">для Кати <span class="heart">♥</span></a><div class="navlinks"><a href="#story">история</a><a href="#moments">моменты</a><a href="#poem">стихотворение</a><a href="#letter">письмо</a></div></nav>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">05 мая 2026 — наша дата</div>
+      <h1>Наша <span>маленькая</span> вечность</h1>
+      <p class="subtitle">С того самого 5 мая. И каждый день я выбираю тебя.</p>
+      <p style="color:#c9b3c0;line-height:1.8;font-size:14px">Для самой родной девочки —<br>о нас, наших моментах и всём, что ещё впереди.</p>
+      <div class="date">05 · 05 · 2026 &nbsp; — &nbsp; 05 · 11 · 2026</div>
+      <div style="margin-top:35px"><a class="btn" href="#story">Открыть нашу историю <span>↓</span></a></div>
+    </div>
+    <div class="scroll">ЛИСТАЙ НИЖЕ</div>
+  </header>
+
+  <main>
+    <section id="story"><div class="wrap">
+      <div class="section-kicker">глава первая</div><h2>С чего всё началось</h2>
+      <p class="intro">Когда-то всё было просто разговором. А потом незаметно один человек стал тем, кому хочется рассказывать обо всём — и хорошему, и сложному, и совершенно обычному.</p>
+      <div class="story">
+        <article class="story-card"><div class="num">01</div><h3>5 мая 2026</h3><p>День, с которого началась наша история. Одна дата, за которой теперь так много чувств, разговоров и воспоминаний.</p></article>
+        <article class="story-card"><div class="num">02</div><h3>Несмотря на километры</h3><p>Между нами расстояние, но оно не отменяет заботу, поддержку и желание быть частью жизни друг друга.</p></article>
+        <article class="story-card"><div class="num">03</div><h3>Наши маленькие моменты</h3><p>Переписки, звонки, шутки, встречи и слова, которые понятны только нам. Из этого и складывается наше «мы».</p></article>
+        <article class="story-card"><div class="num">04</div><h3>И это только начало</h3><p>Впереди ещё столько всего: новые места, общие фотографии, долгие разговоры и дни, которые однажды станут любимыми воспоминаниями.</p></article>
+      </div>
+    </div></section>
+
+    <section id="moments"><div class="wrap">
+      <div class="section-kicker">глава вторая</div><h2>Наши моменты</h2>
+      <p class="intro">Здесь должны быть фотографии, которые хочется пересматривать. Замени эти карточки вашими снимками — и сайт станет по-настоящему вашим.</p>
+      <div class="gallery">
+        <div class="photo"><span>Наше первое фото<small>ДОБАВЬ ФОТО</small></span></div>
+        <div class="photo"><span>Любимый момент<small>ДОБАВЬ ФОТО</small></span></div>
+        <div class="photo"><span>Ещё одно воспоминание<small>ДОБАВЬ ФОТО</small></span></div>
+      </div>
+    </div></section>
+
+    <section id="poem"><div class="wrap">
+      <div class="section-kicker">глава третья</div><h2>Полгода из вечности</h2>
+      <p class="intro">Несколько строк, которые я хочу оставить здесь для тебя.</p>
+      <div class="poem">
+        <p>Полгода… Вроде бы немного,<br>Но сколько в них тепла и света.<br>Как незаметно и глубоко<br>Ты стала частью мира этого.</p>
+        <p>Я помню, как всё начиналось,<br>Как наши дни текли в ночи,<br>Как сердце к сердцу приближалось,<br>И загорались две свечи.</p>
+        <p>Пусть между нами километры,<br>Пусть города нас разделяют,<br>Мне не страшны ни дни, ни ветры,<br>Когда твой голос согревает.</p>
+        <p>Я полюбил не только внешность,<br>Не только блеск в твоих глазах,<br>Я полюбил твою душевность,<br>Твоё тепло в простых словах.</p>
+        <p>Я знаю, мы не идеальны,<br>Бывают споры, трудный час,<br>Но даже в дни порой печальные<br>Я всё равно выбираю нас.</p>
+        <p>Хочу с тобой встречать рассветы,<br>Делить обычные деньки,<br>Дарить цветы зимой и летом,<br>Хранить совместные мечты.</p>
+        <p>И пусть проходят наши годы,<br>Становятся длиннее дни,<br>Я буду счастлив в непогоду,<br>Пока со мною рядом ты.</p>
+        <p>Через расстояния и дни,<br>Через дороги и преграды,<br>Чтоб снова встретить лишь тебя,<br>Ведь большего мне и не надо.</p>
+        <p>С нашей датой, Катя. <span class="heart">♥</span></p>
+      </div>
+    </div></section>
+
+    <section><div class="wrap">
+      <div class="section-kicker">глава четвёртая</div><h2>То, за что я тебя люблю</h2>
+      <p class="intro">Это только начало списка. Самые важные причины — те, которые невозможно уместить в карточки.</p>
+      <div class="reasons">
+        <div class="reason"><b>01</b>За твою улыбку</div>
+        <div class="reason"><b>02</b>За твой голос</div>
+        <div class="reason"><b>03</b>За твою душевность</div>
+        <div class="reason"><b>04</b>За наши шутки</div>
+        <div class="reason"><b>05</b>За твою искренность</div>
+        <div class="reason"><b>06</b>Просто за то, что ты — ты</div>
+      </div>
+    </div></section>
+
+    <section id="letter"><div class="wrap letter-wrap">
+      <div class="section-kicker">последняя глава — но не конец</div><h2>Одно письмо для тебя</h2>
+      <p class="letter">Катюш, мне иногда очень не хватает возможности просто оказаться рядом с тобой, обнять тебя, взять за руку и провести обычный день вместе.</p>
+      <button class="btn" id="openLetter" type="button">Открыть моё послание <span>♥</span></button>
+      <div class="hidden-letter" id="hiddenLetter">
+        Я не хочу, чтобы расстояние становилось мерилом нашей любви. Для меня ты не становишься менее родной из-за километров между нами. Я хочу, чтобы однажды нам больше не приходилось прощаться после встреч и считать дни до следующего раза. Хочу обычную жизнь с тобой, в которой ты просто рядом.<br><br>
+        Спасибо за эти полгода, за твоё тепло, за улыбки и за то, что ты есть в моей жизни. Я очень тебя люблю и хочу, чтобы это было только начало нашей большой истории.<br><br>
+        <span class="heart">Твой Дима ♥</span>
+      </div>
+    </div></section>
+  </main>
+  <footer><strong>С того самого 5 мая.</strong>И каждый день я выбираю тебя. <span class="heart">♥</span></footer>
+  <script>
+    const stars=document.getElementById('stars');
+    for(let i=0;i<75;i++){const s=document.createElement('i');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=(Math.random()*4)+'s';s.style.animationDuration=(2+Math.random()*4)+'s';stars.appendChild(s)}
+    document.getElementById('openLetter').addEventListener('click',()=>{const letter=document.getElementById('hiddenLetter');letter.classList.toggle('show');document.getElementById('openLetter').innerHTML=letter.classList.contains('show')?'Закрыть послание':'Открыть моё послание <span>♥</span>';});
+  </script>
+</body>
+</html>
